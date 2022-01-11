@@ -9,16 +9,18 @@
 /* Begin PBXBuildFile section */
 		100830F3278D2C3D00CC0690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100830F2278D2C3D00CC0690 /* AppDelegate.swift */; };
 		100830F5278D2C3D00CC0690 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100830F4278D2C3D00CC0690 /* SceneDelegate.swift */; };
-		100830F7278D2C3D00CC0690 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100830F6278D2C3D00CC0690 /* ViewController.swift */; };
-		100830FA278D2C3D00CC0690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100830F8278D2C3D00CC0690 /* Main.storyboard */; };
+		100830F7278D2C3D00CC0690 /* AllExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100830F6278D2C3D00CC0690 /* AllExpenseViewController.swift */; };
 		100830FC278D2C4000CC0690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100830FB278D2C4000CC0690 /* Assets.xcassets */; };
 		100830FF278D2C4000CC0690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100830FD278D2C4000CC0690 /* LaunchScreen.storyboard */; };
 		1008310A278D2C4000CC0690 /* ExpenseTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10083109278D2C4000CC0690 /* ExpenseTableViewCellSpec.swift */; };
 		10083114278D2C4000CC0690 /* ExpenserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10083113278D2C4000CC0690 /* ExpenserUITests.swift */; };
 		10083116278D2C4000CC0690 /* ExpenserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10083115278D2C4000CC0690 /* ExpenserUITestsLaunchTests.swift */; };
+		103D51F8278D3C4900A87B94 /* AllExpenseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103D51F7278D3C4900A87B94 /* AllExpenseViewController.storyboard */; };
+		103D51FA278D3C5200A87B94 /* AllExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D51F9278D3C5200A87B94 /* AllExpenseViewModel.swift */; };
 		103D51FD278D3DDB00A87B94 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D51FC278D3DDB00A87B94 /* ExpenseTableViewCell.swift */; };
 		103D51FF278D3DE100A87B94 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103D51FE278D3DE100A87B94 /* ExpenseTableViewCell.xib */; };
 		103D5202278D511700A87B94 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5201278D511700A87B94 /* Theme.swift */; };
+		103D5212278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */; };
 		5036B11FE6CC15025C893EB0 /* Pods_Expenser_ExpenserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A7415B8224AC572BBFB93 /* Pods_Expenser_ExpenserUITests.framework */; };
 		5D26E8B5A1583C7115C1723F /* Pods_Expenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */; };
 		A24453AE3D9361AC3E4DB8C5 /* Pods_ExpenserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04243AA81E50EE413FDB46BF /* Pods_ExpenserTests.framework */; };
@@ -46,8 +48,7 @@
 		100830EF278D2C3D00CC0690 /* Expenser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expenser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		100830F2278D2C3D00CC0690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		100830F4278D2C3D00CC0690 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		100830F6278D2C3D00CC0690 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		100830F9278D2C3D00CC0690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		100830F6278D2C3D00CC0690 /* AllExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpenseViewController.swift; sourceTree = "<group>"; };
 		100830FB278D2C4000CC0690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		100830FE278D2C4000CC0690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10083100278D2C4000CC0690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,9 +57,12 @@
 		1008310F278D2C4000CC0690 /* ExpenserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpenserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10083113278D2C4000CC0690 /* ExpenserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenserUITests.swift; sourceTree = "<group>"; };
 		10083115278D2C4000CC0690 /* ExpenserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		103D51F7278D3C4900A87B94 /* AllExpenseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllExpenseViewController.storyboard; sourceTree = "<group>"; };
+		103D51F9278D3C5200A87B94 /* AllExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpenseViewModel.swift; sourceTree = "<group>"; };
 		103D51FC278D3DDB00A87B94 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		103D51FE278D3DE100A87B94 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
 		103D5201278D511700A87B94 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpenseViewControllerSpec.swift; sourceTree = "<group>"; };
 		1119C2318C0DAB3E2E3DD362 /* Pods-Expenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenser.release.xcconfig"; path = "Target Support Files/Pods-Expenser/Pods-Expenser.release.xcconfig"; sourceTree = "<group>"; };
 		2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenserTests.release.xcconfig"; path = "Target Support Files/Pods-ExpenserTests/Pods-ExpenserTests.release.xcconfig"; sourceTree = "<group>"; };
 		38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expenser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,7 @@
 				100830F4278D2C3D00CC0690 /* SceneDelegate.swift */,
 				103D5200278D510B00A87B94 /* Theme */,
 				103D51FB278D3DC900A87B94 /* ExpenseTableViewCell */,
+				103D51F6278D3C3800A87B94 /* AllExpenseView */,
 				100830FB278D2C4000CC0690 /* Assets.xcassets */,
 				100830FD278D2C4000CC0690 /* LaunchScreen.storyboard */,
 				10083100278D2C4000CC0690 /* Info.plist */,
@@ -136,6 +141,7 @@
 		10083108278D2C4000CC0690 /* ExpenserTests */ = {
 			isa = PBXGroup;
 			children = (
+				103D5210278D6E7400A87B94 /* AllExpenseView */,
 				103D520F278D6E6400A87B94 /* ExpenseTableViewCell */,
 			);
 			path = ExpenserTests;
@@ -148,6 +154,68 @@
 				10083115278D2C4000CC0690 /* ExpenserUITestsLaunchTests.swift */,
 			);
 			path = ExpenserUITests;
+			sourceTree = "<group>";
+		};
+		103D51F6278D3C3800A87B94 /* AllExpenseView */ = {
+			isa = PBXGroup;
+			children = (
+				100830F6278D2C3D00CC0690 /* AllExpenseViewController.swift */,
+				103D51F9278D3C5200A87B94 /* AllExpenseViewModel.swift */,
+				103D51F7278D3C4900A87B94 /* AllExpenseViewController.storyboard */,
+			);
+			path = AllExpenseView;
+			sourceTree = "<group>";
+		};
+		103D51FB278D3DC900A87B94 /* ExpenseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				103D51FC278D3DDB00A87B94 /* ExpenseTableViewCell.swift */,
+				103D51FE278D3DE100A87B94 /* ExpenseTableViewCell.xib */,
+			);
+			path = ExpenseTableViewCell;
+			sourceTree = "<group>";
+		};
+		103D5200278D510B00A87B94 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				103D5201278D511700A87B94 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		103D5203278D556B00A87B94 /* AddExpenseView */ = {
+			isa = PBXGroup;
+			children = (
+				103D5204278D558F00A87B94 /* AddExpenseViewController.swift */,
+				103D5208278D559F00A87B94 /* AddExpenseViewModel.swift */,
+				103D5206278D559500A87B94 /* AddExpenseViewController.storyboard */,
+			);
+			path = AddExpenseView;
+			sourceTree = "<group>";
+		};
+		103D520A278D569800A87B94 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				103D520B278D572B00A87B94 /* CustomTextField.swift */,
+				103D520D278D573400A87B94 /* CustomTextField.xib */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		103D520F278D6E6400A87B94 /* ExpenseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				10083109278D2C4000CC0690 /* ExpenseTableViewCellSpec.swift */,
+			);
+			path = ExpenseTableViewCell;
+			sourceTree = "<group>";
+		};
+		103D5210278D6E7400A87B94 /* AllExpenseView */ = {
+			isa = PBXGroup;
+			children = (
+				103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */,
+			);
+			path = AllExpenseView;
 			sourceTree = "<group>";
 		};
 		295041267DDE0CACE51C28AC /* Frameworks */ = {
@@ -408,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1008310A278D2C4000CC0690 /* ExpenserTests.swift in Sources */,
+				103D5212278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
