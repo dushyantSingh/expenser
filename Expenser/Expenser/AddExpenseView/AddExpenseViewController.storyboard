@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Expense View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddExpenseViewController" id="Y6W-OH-hqX" customClass="AddExpenseViewController" customModule="Expenser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLj-gR-p78" customClass="CustomTextField" customModule="Expenser" customModuleProvider="target">
+                                <rect key="frame" x="24" y="92" width="366" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="UDt-m6-h4D"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akf-Py-v4A" customClass="CustomTextField" customModule="Expenser" customModuleProvider="target">
+                                <rect key="frame" x="24" y="176" width="249" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="goe-t8-m7g"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-01-pgU">
+                                <rect key="frame" x="24" y="278" width="366" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sny-gk-SW9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Expense"/>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="7U5-v6-jh7">
+                                <rect key="frame" x="289" y="191" width="109" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="8nU-5O-mx9"/>
+                                </constraints>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XLj-gR-p78" secondAttribute="trailing" constant="24" id="0Ud-6C-HxF"/>
+                            <constraint firstItem="yxp-01-pgU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="945-1k-7t6"/>
+                            <constraint firstItem="akf-Py-v4A" firstAttribute="top" secondItem="XLj-gR-p78" secondAttribute="bottom" constant="24" id="GZc-k0-pil"/>
+                            <constraint firstItem="7U5-v6-jh7" firstAttribute="leading" secondItem="akf-Py-v4A" secondAttribute="trailing" constant="16" id="HsO-75-YZm"/>
+                            <constraint firstItem="7U5-v6-jh7" firstAttribute="centerY" secondItem="akf-Py-v4A" secondAttribute="centerY" id="I97-Ze-88B"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7U5-v6-jh7" secondAttribute="trailing" constant="16" id="Vsi-fs-Rd4"/>
+                            <constraint firstItem="XLj-gR-p78" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="c1b-EJ-nMu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yxp-01-pgU" secondAttribute="trailing" constant="24" id="cd4-bd-14h"/>
+                            <constraint firstItem="XLj-gR-p78" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="48" id="hXX-za-5zw"/>
+                            <constraint firstItem="akf-Py-v4A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="jcU-JP-32d"/>
+                            <constraint firstItem="yxp-01-pgU" firstAttribute="top" secondItem="akf-Py-v4A" secondAttribute="bottom" constant="42" id="lpx-2w-eXe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="expenseAmount" destination="akf-Py-v4A" id="fG4-bO-b5a"/>
+                        <outlet property="expenseTitle" destination="XLj-gR-p78" id="9aF-Tm-2pX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

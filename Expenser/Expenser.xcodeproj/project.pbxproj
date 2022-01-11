@@ -20,6 +20,11 @@
 		103D51FD278D3DDB00A87B94 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D51FC278D3DDB00A87B94 /* ExpenseTableViewCell.swift */; };
 		103D51FF278D3DE100A87B94 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103D51FE278D3DE100A87B94 /* ExpenseTableViewCell.xib */; };
 		103D5202278D511700A87B94 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5201278D511700A87B94 /* Theme.swift */; };
+		103D5205278D558F00A87B94 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5204278D558F00A87B94 /* AddExpenseViewController.swift */; };
+		103D5207278D559500A87B94 /* AddExpenseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103D5206278D559500A87B94 /* AddExpenseViewController.storyboard */; };
+		103D5209278D559F00A87B94 /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5208278D559F00A87B94 /* AddExpenseViewModel.swift */; };
+		103D520C278D572B00A87B94 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D520B278D572B00A87B94 /* CustomTextField.swift */; };
+		103D520E278D573400A87B94 /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103D520D278D573400A87B94 /* CustomTextField.xib */; };
 		103D5212278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */; };
 		5036B11FE6CC15025C893EB0 /* Pods_Expenser_ExpenserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A7415B8224AC572BBFB93 /* Pods_Expenser_ExpenserUITests.framework */; };
 		5D26E8B5A1583C7115C1723F /* Pods_Expenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */; };
@@ -62,6 +67,11 @@
 		103D51FC278D3DDB00A87B94 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		103D51FE278D3DE100A87B94 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
 		103D5201278D511700A87B94 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		103D5204278D558F00A87B94 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		103D5206278D559500A87B94 /* AddExpenseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddExpenseViewController.storyboard; sourceTree = "<group>"; };
+		103D5208278D559F00A87B94 /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
+		103D520B278D572B00A87B94 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		103D520D278D573400A87B94 /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpenseViewControllerSpec.swift; sourceTree = "<group>"; };
 		1119C2318C0DAB3E2E3DD362 /* Pods-Expenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenser.release.xcconfig"; path = "Target Support Files/Pods-Expenser/Pods-Expenser.release.xcconfig"; sourceTree = "<group>"; };
 		2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenserTests.release.xcconfig"; path = "Target Support Files/Pods-ExpenserTests/Pods-ExpenserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,9 +138,11 @@
 			children = (
 				100830F2278D2C3D00CC0690 /* AppDelegate.swift */,
 				100830F4278D2C3D00CC0690 /* SceneDelegate.swift */,
+				103D520A278D569800A87B94 /* Common */,
 				103D5200278D510B00A87B94 /* Theme */,
 				103D51FB278D3DC900A87B94 /* ExpenseTableViewCell */,
 				103D51F6278D3C3800A87B94 /* AllExpenseView */,
+				103D5203278D556B00A87B94 /* AddExpenseView */,
 				100830FB278D2C4000CC0690 /* Assets.xcassets */,
 				100830FD278D2C4000CC0690 /* LaunchScreen.storyboard */,
 				10083100278D2C4000CC0690 /* Info.plist */,
@@ -238,7 +250,6 @@
 				8B16455E7CBB0F51E0B437DF /* Pods-ExpenserTests.debug.xcconfig */,
 				2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -352,8 +363,10 @@
 			files = (
 				103D51FF278D3DE100A87B94 /* ExpenseTableViewCell.xib in Resources */,
 				100830FF278D2C4000CC0690 /* LaunchScreen.storyboard in Resources */,
+				103D520E278D573400A87B94 /* CustomTextField.xib in Resources */,
+				103D5207278D559500A87B94 /* AddExpenseViewController.storyboard in Resources */,
 				100830FC278D2C4000CC0690 /* Assets.xcassets in Resources */,
-				100830FA278D2C3D00CC0690 /* Main.storyboard in Resources */,
+				103D51F8278D3C4900A87B94 /* AllExpenseViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,9 +478,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				103D51FD278D3DDB00A87B94 /* ExpenseTableViewCell.swift in Sources */,
+				103D5209278D559F00A87B94 /* AddExpenseViewModel.swift in Sources */,
+				100830F7278D2C3D00CC0690 /* AllExpenseViewController.swift in Sources */,
+				103D51FA278D3C5200A87B94 /* AllExpenseViewModel.swift in Sources */,
 				103D5202278D511700A87B94 /* Theme.swift in Sources */,
 				100830F3278D2C3D00CC0690 /* AppDelegate.swift in Sources */,
 				100830F5278D2C3D00CC0690 /* SceneDelegate.swift in Sources */,
+				103D5205278D558F00A87B94 /* AddExpenseViewController.swift in Sources */,
+				103D520C278D572B00A87B94 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,8 +493,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1008310A278D2C4000CC0690 /* ExpenserTests.swift in Sources */,
 				103D5212278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift in Sources */,
+				1008310A278D2C4000CC0690 /* ExpenseTableViewCellSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
