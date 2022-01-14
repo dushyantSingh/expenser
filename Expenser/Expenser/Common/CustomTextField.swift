@@ -5,7 +5,8 @@
 //  Created by Dushyant Singh on 11/1/22.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 enum FontSize: CGFloat {
@@ -41,6 +42,10 @@ class CustomTextField: UIView {
         set { _titleFontSize = newValue
             self.titleLabel.font = Theme.Font.thinFont(with: newValue.rawValue)
         }
+    }
+
+    var rx: Reactive<UITextField> {
+        return textField.rx
     }
 
     var textFontSize: FontSize {
