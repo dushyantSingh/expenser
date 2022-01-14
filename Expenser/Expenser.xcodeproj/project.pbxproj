@@ -264,6 +264,7 @@
 				100830EB278D2C3D00CC0690 /* Sources */,
 				100830EC278D2C3D00CC0690 /* Frameworks */,
 				100830ED278D2C3D00CC0690 /* Resources */,
+				111268CE72EF09E1142326F0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,6 +303,7 @@
 				1008310B278D2C4000CC0690 /* Sources */,
 				1008310C278D2C4000CC0690 /* Frameworks */,
 				1008310D278D2C4000CC0690 /* Resources */,
+				3F1AC84E7576280D62071AC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -387,6 +389,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		111268CE72EF09E1142326F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expenser/Pods-Expenser-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expenser/Pods-Expenser-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expenser/Pods-Expenser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F1AC84E7576280D62071AC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expenser-ExpenserUITests/Pods-Expenser-ExpenserUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expenser-ExpenserUITests/Pods-Expenser-ExpenserUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expenser-ExpenserUITests/Pods-Expenser-ExpenserUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5E304BC7655769D077082D8C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
