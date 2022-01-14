@@ -6,6 +6,9 @@ target 'Expenser' do
   use_frameworks!
 
   # Pods for Expenser
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxOptional'
 
   target 'ExpenserTests' do
     inherit! :search_paths
