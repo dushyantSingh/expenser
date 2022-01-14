@@ -26,8 +26,11 @@
 		103D520C278D572B00A87B94 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D520B278D572B00A87B94 /* CustomTextField.swift */; };
 		103D520E278D573400A87B94 /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103D520D278D573400A87B94 /* CustomTextField.xib */; };
 		103D5212278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */; };
+		103D5215278D8A5D00A87B94 /* ExpenseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5214278D8A5D00A87B94 /* ExpenseDB.swift */; };
+		103D5217278D8A6B00A87B94 /* RealmDbType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103D5216278D8A6B00A87B94 /* RealmDbType.swift */; };
 		108521462791E207003FB67A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 108521452791E207003FB67A /* Realm */; };
 		108521482791E207003FB67A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 108521472791E207003FB67A /* RealmSwift */; };
+		10B2AA5B278D8CEF0043C532 /* ExpenseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */; };
 		5036B11FE6CC15025C893EB0 /* Pods_Expenser_ExpenserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A7415B8224AC572BBFB93 /* Pods_Expenser_ExpenserUITests.framework */; };
 		5D26E8B5A1583C7115C1723F /* Pods_Expenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */; };
 		A24453AE3D9361AC3E4DB8C5 /* Pods_ExpenserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04243AA81E50EE413FDB46BF /* Pods_ExpenserTests.framework */; };
@@ -75,6 +78,9 @@
 		103D520B278D572B00A87B94 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		103D520D278D573400A87B94 /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpenseViewControllerSpec.swift; sourceTree = "<group>"; };
+		103D5214278D8A5D00A87B94 /* ExpenseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDB.swift; sourceTree = "<group>"; };
+		103D5216278D8A6B00A87B94 /* RealmDbType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDbType.swift; sourceTree = "<group>"; };
+		10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseObject.swift; sourceTree = "<group>"; };
 		1119C2318C0DAB3E2E3DD362 /* Pods-Expenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenser.release.xcconfig"; path = "Target Support Files/Pods-Expenser/Pods-Expenser.release.xcconfig"; sourceTree = "<group>"; };
 		2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenserTests.release.xcconfig"; path = "Target Support Files/Pods-ExpenserTests/Pods-ExpenserTests.release.xcconfig"; sourceTree = "<group>"; };
 		38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expenser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +153,7 @@
 				103D51FB278D3DC900A87B94 /* ExpenseTableViewCell */,
 				103D51F6278D3C3800A87B94 /* AllExpenseView */,
 				103D5203278D556B00A87B94 /* AddExpenseView */,
+				103D5213278D8A4100A87B94 /* DataStore */,
 				100830FB278D2C4000CC0690 /* Assets.xcassets */,
 				100830FD278D2C4000CC0690 /* LaunchScreen.storyboard */,
 				10083100278D2C4000CC0690 /* Info.plist */,
@@ -232,6 +239,16 @@
 				103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */,
 			);
 			path = AllExpenseView;
+			sourceTree = "<group>";
+		};
+		103D5213278D8A4100A87B94 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				103D5214278D8A5D00A87B94 /* ExpenseDB.swift */,
+				10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */,
+				103D5216278D8A6B00A87B94 /* RealmDbType.swift */,
+			);
+			path = DataStore;
 			sourceTree = "<group>";
 		};
 		295041267DDE0CACE51C28AC /* Frameworks */ = {
@@ -524,9 +541,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103D5217278D8A6B00A87B94 /* RealmDbType.swift in Sources */,
+				103D5215278D8A5D00A87B94 /* ExpenseDB.swift in Sources */,
 				103D51FD278D3DDB00A87B94 /* ExpenseTableViewCell.swift in Sources */,
 				103D5209278D559F00A87B94 /* AddExpenseViewModel.swift in Sources */,
 				100830F7278D2C3D00CC0690 /* AllExpenseViewController.swift in Sources */,
+				10B2AA5B278D8CEF0043C532 /* ExpenseObject.swift in Sources */,
 				103D51FA278D3C5200A87B94 /* AllExpenseViewModel.swift in Sources */,
 				103D5202278D511700A87B94 /* Theme.swift in Sources */,
 				100830F3278D2C3D00CC0690 /* AppDelegate.swift in Sources */,
