@@ -7,12 +7,14 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
 
 protocol RealmDbType: AnyObject {
     var dbName: String { get }
     var realm: Realm? { get set }
     var schemaVersion: UInt64 { get }
     var objectTypes: [Object.Type] { get }
+    var changesObserved: PublishSubject<Void>? { get set }
 
     func initializeDB(completion: (_ success: Bool, _ error: Error?) -> Void)
     func save<T: Object>(object: T)
@@ -27,6 +29,7 @@ extension RealmDbType {
                                              schemaVersion: schemaVersion,
                                              objectTypes: objectTypes)
             self.realm = try Realm(configuration: config)
+            changesObserved = PublishSubject()
             completion(true, nil)
         } catch let error {
             completion(false, error)
@@ -37,6 +40,7 @@ extension RealmDbType {
         do {
             try self.realm?.write {
                 self.realm?.add(object)
+                changesObserved?.onNext(())
             }
         } catch (let error) {
             fatalError("RealmDB: (\(dbName)), save[T]: \(error.localizedDescription)")

@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ExpenseServiceType {
+    var changesObserved: Observable<Void> { get }
     func getAllExpenses() -> [ExpenseObject]
 
     @discardableResult
@@ -22,6 +24,10 @@ class ExpenseService: ExpenseServiceType {
 
     init(expenseDB: RealmDbType) {
         self.expenseDB = expenseDB
+    }
+
+    var changesObserved: Observable<Void> {
+        return expenseDB.changesObserved ?? .empty()
     }
 
     func getAllExpenses() -> [ExpenseObject] {

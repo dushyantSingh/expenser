@@ -7,12 +7,15 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
 
 class ExpenseDB: RealmDbType {
+
     var dbName: String { "ExpenseDB" }
     var schemaVersion: UInt64 { 1 }
     var objectTypes: [Object.Type] {[ExpenseObject.self]}
     var realm: Realm?
+    var changesObserved: PublishSubject<Void>?
 
     static let shared: ExpenseDB = ExpenseDB()
     private init() {
