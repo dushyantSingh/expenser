@@ -10,10 +10,10 @@ import RealmSwift
 import RxSwift
 
 class ExpenseObject: Object {
-    @objc dynamic var creationDate: Date = Date()
-    @objc dynamic var expenseDate: Date = Date()
-    @objc dynamic var title = ""
-    @objc dynamic var amount: Double = 0.00
-    @objc dynamic var currency: String = "SGD"
-    @objc dynamic var currencySymbol: String = "$"
+    @Persisted var creationDate: Date = Date()
+    @Persisted var expenseDate: Date = Date()
+    @Persisted var title = ""
+    @Persisted var amount: Double = 0.00
+    @Persisted var currency: String = "SGD"
+    @Persisted var currencySymbol: String = "$"
 }
