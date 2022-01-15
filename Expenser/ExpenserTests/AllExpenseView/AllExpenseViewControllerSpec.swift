@@ -14,9 +14,14 @@ class AllExpenseViewControllerSpec: QuickSpec {
     override func spec() {
         describe("AllExpenseViewController test") {
             var subject: AllExpenseViewController!
+            var viewModel: AllExpenseViewModel!
 
             beforeEach {
+                let mockService = MockExpenseService()
+                mockService.stubExpenses = ExpenseFactory.getExpenses_2()
+                viewModel = AllExpenseViewModel(service: mockService )
                 subject = UIViewController.make(viewController: AllExpenseViewController.self)
+                subject.viewModel = viewModel
                 _ = subject.view
             }
 
@@ -25,15 +30,72 @@ class AllExpenseViewControllerSpec: QuickSpec {
                     expect(subject.navigationItem.title) == "Expenses"
                 }
 
-                it("should display 12 dummy expenses") {
-                    expect(subject.tableView.numberOfRows(inSection: 0)) == 14
+                it("should display expenses for 3 months") {
+                    expect(subject.tableView.numberOfSections) == 3
                 }
-                it("should have dummy data") {
-                    let cell = subject.tableView.cellForRow(at: IndexPath(row: 0,
-                                                                          section: 0)) as! ExpenseTableViewCell
-                    expect(cell.dateTextLabel.text) == "12 Dec"
-                    expect(cell.amountTextLabel.text) == "$23.18"
-                    expect(cell.primaryTextLabel.text) == "Something important "
+                context("January Expenses") {
+                    it("should have 3 expenses") {
+                        expect(subject.tableView.numberOfRows(inSection: 0)) == 3
+                    }
+                    it("should have header title") {
+                        expect(subject.tableView.dataSource?.tableView?(subject.tableView,
+                                                                        titleForHeaderInSection: 0)) == "January 2022"
+                    }
+                    it("should have first row") {
+                        let indexPath = IndexPath(row: 0, section: 0)
+                        let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
+                        expect(cell.dateTextLabel.text) == "12 Jan"
+                        expect(cell.amountTextLabel.text) == "$632.8"
+                        expect(cell.primaryTextLabel.text) == "Car repair"
+                    }
+                    it("should have second row") {
+                        let indexPath = IndexPath(row: 1, section: 0)
+                        let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
+                        expect(cell.dateTextLabel.text) == "10 Jan"
+                        expect(cell.amountTextLabel.text) == "$42.9"
+                        expect(cell.primaryTextLabel.text) == "Movie night"
+                    }
+                    it("should have third row") {
+                        let indexPath = IndexPath(row: 2, section: 0)
+                        let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
+                        expect(cell.dateTextLabel.text) == "07 Jan"
+                        expect(cell.amountTextLabel.text) == "$23.12"
+                        expect(cell.primaryTextLabel.text) == "Dinner outisde"
+                    }
+                }
+
+                context("December Expenses") {
+                    it("should have 1 expense") {
+                        expect(subject.tableView.numberOfRows(inSection: 1)) == 1
+                    }
+                    it("should have header title") {
+                        expect(subject.tableView.dataSource?.tableView?(subject.tableView,
+                                                                        titleForHeaderInSection: 1)) == "December 2021"
+                    }
+                    it("should have first row") {
+                        let indexPath = IndexPath(row: 0, section: 1)
+                        let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
+                        expect(cell.dateTextLabel.text) == "18 Dec"
+                        expect(cell.amountTextLabel.text) == "$200.0"
+                        expect(cell.primaryTextLabel.text) == "Donation"
+                    }
+                }
+
+                context("November Expenses") {
+                    it("should have 1 expense") {
+                        expect(subject.tableView.numberOfRows(inSection: 2)) == 1
+                    }
+                    it("should have header title") {
+                        expect(subject.tableView.dataSource?.tableView?(subject.tableView,
+                                                                        titleForHeaderInSection: 2)) == "November 2021"
+                    }
+                    it("should have first row") {
+                        let indexPath = IndexPath(row: 0, section: 2)
+                        let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
+                        expect(cell.dateTextLabel.text) == "21 Nov"
+                        expect(cell.amountTextLabel.text) == "$1029.2"
+                        expect(cell.primaryTextLabel.text) == "Travel"
+                    }
                 }
             }
         }

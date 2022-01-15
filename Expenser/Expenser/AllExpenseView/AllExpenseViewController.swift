@@ -6,13 +6,22 @@
 //
 
 import UIKit
+import RxSwift
 
 class AllExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    var viewModel: AllExpenseViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupNavigationBar()
+    }
+}
+
+private extension AllExpenseViewController {
+    func setupNavigationBar() {
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add,
                                            target: self,
                                            action: #selector(addExpense(sender:)))
@@ -24,6 +33,7 @@ class AllExpenseViewController: UIViewController {
     @objc
     func addExpense(sender: UIBarButtonItem) {
         let addExpenseController = UIViewController.make(viewController: AddExpenseViewController.self)
+        addExpenseController.viewModel = AddExpenseViewModel(service: ExpenseService(expenseDB: ExpenseDB.shared))
         self.present(UINavigationController(rootViewController: addExpenseController),
                      animated: true)
     }
@@ -40,12 +50,19 @@ extension AllExpenseViewController: UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.expenseSections.count
     }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return viewModel.expenseSections[section].rows.count
     }
+
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        return viewModel.expenseSections[section].header
+    }
+
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "\(ExpenseTableViewCell.self)"
@@ -53,7 +70,18 @@ extension AllExpenseViewController: UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: identifier,
                                      for: indexPath) as? ExpenseTableViewCell
         else { return UITableViewCell() }
+        let expense = viewModel.expenseSections[indexPath.section].rows[indexPath.row]
+        configure(cell: cell, expense: expense)
         return cell
     }
-}
 
+    func configure(cell: ExpenseTableViewCell, expense: ExpenseObject) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM"
+        let expenseDate = dateFormatter.string(from: expense.expenseDate)
+        let amount = "\(expense.currencySymbol)\(expense.amount)"
+        cell.configure(dateText: expenseDate,
+                       primaryText: expense.title,
+                       spentAmount: amount)
+    }
+}

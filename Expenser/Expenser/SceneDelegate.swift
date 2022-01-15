@@ -13,6 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let winScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: winScene)
         let initialViewController = UIViewController.make(viewController: AllExpenseViewController.self)
+        let service = ExpenseService(expenseDB: ExpenseDB.shared)
+        initialViewController.viewModel = AllExpenseViewModel(service: service)
         let navController = UINavigationController(rootViewController: initialViewController)
         self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
