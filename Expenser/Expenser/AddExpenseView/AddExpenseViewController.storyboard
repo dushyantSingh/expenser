@@ -29,16 +29,18 @@
                                     <constraint firstAttribute="height" constant="60" id="goe-t8-m7g"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-01-pgU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-01-pgU" customClass="PrimaryButton" customModule="Expenser" customModuleProvider="target">
                                 <rect key="frame" x="24" y="278" width="366" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="sny-gk-SW9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add Expense"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Expense">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="7U5-v6-jh7">
-                                <rect key="frame" x="289" y="191" width="109" height="31"/>
+                                <rect key="frame" x="289" y="190.5" width="109" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="8nU-5O-mx9"/>
                                 </constraints>
@@ -61,7 +63,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addExpenseButton" destination="yxp-01-pgU" id="X7q-9M-W30"/>
                         <outlet property="expenseAmount" destination="akf-Py-v4A" id="fG4-bO-b5a"/>
+                        <outlet property="expenseDatePickerView" destination="7U5-v6-jh7" id="Krz-42-EPh"/>
                         <outlet property="expenseTitle" destination="XLj-gR-p78" id="9aF-Tm-2pX"/>
                     </connections>
                 </viewController>
