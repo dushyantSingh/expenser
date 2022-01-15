@@ -19,16 +19,29 @@ class AllExpenseViewModel {
     var expenseSections = [ExpenseSectionModel]()
 
     let expenseService: ExpenseServiceType
+    let deleteTriggered = PublishSubject<IndexPath>()
     let events = PublishSubject<Event>()
 
+    private let disposeBag = DisposeBag()
     init(service: ExpenseServiceType) {
         expenseService = service
         fetchAllExpenses()
+        setupDelete()
+        setupDatabaseChanges()
     }
 }
 
 private extension AllExpenseViewModel {
+    func setupDatabaseChanges() {
+        expenseService.changesObserved.asObservable()
+            .subscribe(onNext: { [weak self]_ in
+                self?.fetchAllExpenses()
+            })
+            .disposed(by: disposeBag)
+    }
+
     func fetchAllExpenses() {
+        expenseSections.removeAll()
         var expenses = expenseService.getAllExpenses()
         expenses.sort { $0.expenseDate > $1.expenseDate }
         let formatter = DateFormatter()
@@ -39,5 +52,16 @@ private extension AllExpenseViewModel {
             expenseSections.append(section)
         }
         expenseSections.sort { formatter.date(from: $0.header)! > formatter.date(from: $1.header)! }
+    }
+
+    func setupDelete() {
+        deleteTriggered.asObservable()
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+
+                let expense = self.expenseSections[indexPath.section].rows.remove(at: indexPath.row)
+                self.expenseService.deleteExpense(expense)
+            })
+            .disposed(by: disposeBag)
     }
 }

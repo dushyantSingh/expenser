@@ -13,6 +13,7 @@ class AllExpenseViewController: UIViewController {
 
     var viewModel: AllExpenseViewModel!
 
+    private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -46,7 +47,13 @@ extension AllExpenseViewController: UITableViewDataSource {
                                 bundle: Bundle(for: ExpenseTableViewCell.self)),
                           forCellReuseIdentifier: identifier)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.reloadData()
+        viewModel.expenseService.changesObserved.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,5 +90,22 @@ extension AllExpenseViewController: UITableViewDataSource {
         cell.configure(dateText: expenseDate,
                        primaryText: expense.title,
                        spentAmount: amount)
+    }
+}
+
+extension AllExpenseViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            viewModel.deleteTriggered.onNext(indexPath)
+            tableView.endUpdates()
+        }
     }
 }
