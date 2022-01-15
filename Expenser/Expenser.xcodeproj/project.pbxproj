@@ -35,6 +35,9 @@
 		108521502791E555003FB67A /* ExpenseSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085214F2791E555003FB67A /* ExpenseSectionModel.swift */; };
 		1085215327927BCF003FB67A /* AddExpenseViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085215227927BCF003FB67A /* AddExpenseViewModelSpec.swift */; };
 		108521552792953B003FB67A /* AddExpenseViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108521542792953B003FB67A /* AddExpenseViewControllerSpec.swift */; };
+		10AB480027931DAA000F5F9E /* ExpenseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB47FF27931DAA000F5F9E /* ExpenseFactory.swift */; };
+		10AB480227932279000F5F9E /* AllExpenseViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB480127932279000F5F9E /* AllExpenseViewModelSpec.swift */; };
+		10AB48052793257F000F5F9E /* MockExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB48042793257F000F5F9E /* MockExpenseService.swift */; };
 		10B2AA5B278D8CEF0043C532 /* ExpenseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */; };
 		5036B11FE6CC15025C893EB0 /* Pods_Expenser_ExpenserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A7415B8224AC572BBFB93 /* Pods_Expenser_ExpenserUITests.framework */; };
 		5D26E8B5A1583C7115C1723F /* Pods_Expenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */; };
@@ -90,6 +93,9 @@
 		1085214F2791E555003FB67A /* ExpenseSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseSectionModel.swift; sourceTree = "<group>"; };
 		1085215227927BCF003FB67A /* AddExpenseViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModelSpec.swift; sourceTree = "<group>"; };
 		108521542792953B003FB67A /* AddExpenseViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewControllerSpec.swift; sourceTree = "<group>"; };
+		10AB47FF27931DAA000F5F9E /* ExpenseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFactory.swift; sourceTree = "<group>"; };
+		10AB480127932279000F5F9E /* AllExpenseViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpenseViewModelSpec.swift; sourceTree = "<group>"; };
+		10AB48042793257F000F5F9E /* MockExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExpenseService.swift; sourceTree = "<group>"; };
 		10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseObject.swift; sourceTree = "<group>"; };
 		1119C2318C0DAB3E2E3DD362 /* Pods-Expenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenser.release.xcconfig"; path = "Target Support Files/Pods-Expenser/Pods-Expenser.release.xcconfig"; sourceTree = "<group>"; };
 		2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenserTests.release.xcconfig"; path = "Target Support Files/Pods-ExpenserTests/Pods-ExpenserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 		10083108278D2C4000CC0690 /* ExpenserTests */ = {
 			isa = PBXGroup;
 			children = (
+				10AB48032793256A000F5F9E /* MockServices */,
+				10AB47FE27931D74000F5F9E /* Factory */,
 				1085215127927BB9003FB67A /* AddExpenseView */,
 				103D5210278D6E7400A87B94 /* AllExpenseView */,
 				103D520F278D6E6400A87B94 /* ExpenseTableViewCell */,
@@ -251,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				103D5211278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift */,
+				10AB480127932279000F5F9E /* AllExpenseViewModelSpec.swift */,
 			);
 			path = AllExpenseView;
 			sourceTree = "<group>";
@@ -288,6 +297,22 @@
 				108521542792953B003FB67A /* AddExpenseViewControllerSpec.swift */,
 			);
 			path = AddExpenseView;
+			sourceTree = "<group>";
+		};
+		10AB47FE27931D74000F5F9E /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				10AB47FF27931DAA000F5F9E /* ExpenseFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		10AB48032793256A000F5F9E /* MockServices */ = {
+			isa = PBXGroup;
+			children = (
+				10AB48042793257F000F5F9E /* MockExpenseService.swift */,
+			);
+			path = MockServices;
 			sourceTree = "<group>";
 		};
 		295041267DDE0CACE51C28AC /* Frameworks */ = {
@@ -602,10 +627,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10AB480227932279000F5F9E /* AllExpenseViewModelSpec.swift in Sources */,
 				108521552792953B003FB67A /* AddExpenseViewControllerSpec.swift in Sources */,
 				1085215327927BCF003FB67A /* AddExpenseViewModelSpec.swift in Sources */,
 				103D5212278D6E9C00A87B94 /* AllExpenseViewControllerSpec.swift in Sources */,
+				10AB480027931DAA000F5F9E /* ExpenseFactory.swift in Sources */,
 				1008310A278D2C4000CC0690 /* ExpenseTableViewCellSpec.swift in Sources */,
+				10AB48052793257F000F5F9E /* MockExpenseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

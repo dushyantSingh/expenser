@@ -44,31 +44,10 @@ class AddExpenseViewModelSpec: QuickSpec {
     }
 }
 
-class MockExpenseService: ExpenseServiceType {
-    func getAllExpenses() -> [ExpenseObject] {
-        return []
-    }
-
-    var addExpenseCalledWithTitle: String?
-    var addExpenseCalledWithDate: Date?
-    var addExpenseCalledWithAmount: Double?
-
-    func addExpense(title: String, date: Date, amount: Double) -> Bool {
-        addExpenseCalledWithTitle = title
-        addExpenseCalledWithDate = date
-        addExpenseCalledWithAmount = amount
-        return true
-    }
-
-    func deleteExpense(_ object: ExpenseObject) -> Bool {
-        return true
-    }
-}
-
 extension String {
     func toDate() -> Date {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/mm/YYYY"
+        formatter.dateFormat = "dd/MM/yyyy"
         return formatter.date(from: self)!
     }
 }
