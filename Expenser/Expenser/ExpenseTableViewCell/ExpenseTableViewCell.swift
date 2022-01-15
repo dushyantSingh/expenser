@@ -37,6 +37,7 @@ private extension ExpenseTableViewCell {
         stackBackgroundView.layer.shouldRasterize = true
         stackBackgroundView.layer.rasterizationScale = UIScreen.main.scale
 
+        contentView.backgroundColor = stackBackgroundView.backgroundColor
         dateTextLabel.font = Theme.Font.thinFont(with: 18)
         primaryTextLabel.font = Theme.Font.regularFont(with: 18)
         amountTextLabel.font = Theme.Font.regularFont(with: 18)
