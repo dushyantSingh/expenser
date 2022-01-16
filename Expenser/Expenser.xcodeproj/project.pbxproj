@@ -41,6 +41,7 @@
 		10AB48082793CB74000F5F9E /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB48072793CB74000F5F9E /* ChartViewController.swift */; };
 		10AB480A2793CB7D000F5F9E /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB48092793CB7D000F5F9E /* ChartViewModel.swift */; };
 		10AB480C2793CB84000F5F9E /* ChartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AB480B2793CB84000F5F9E /* ChartViewController.storyboard */; };
+		10AB480F2793DCF6000F5F9E /* ExpenseDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB480E2793DCF6000F5F9E /* ExpenseDataPoint.swift */; };
 		10B2AA5B278D8CEF0043C532 /* ExpenseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */; };
 		5036B11FE6CC15025C893EB0 /* Pods_Expenser_ExpenserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A7415B8224AC572BBFB93 /* Pods_Expenser_ExpenserUITests.framework */; };
 		5D26E8B5A1583C7115C1723F /* Pods_Expenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */; };
@@ -102,6 +103,7 @@
 		10AB48072793CB74000F5F9E /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		10AB48092793CB7D000F5F9E /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		10AB480B2793CB84000F5F9E /* ChartViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChartViewController.storyboard; sourceTree = "<group>"; };
+		10AB480E2793DCF6000F5F9E /* ExpenseDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataPoint.swift; sourceTree = "<group>"; };
 		10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseObject.swift; sourceTree = "<group>"; };
 		1119C2318C0DAB3E2E3DD362 /* Pods-Expenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenser.release.xcconfig"; path = "Target Support Files/Pods-Expenser/Pods-Expenser.release.xcconfig"; sourceTree = "<group>"; };
 		2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenserTests.release.xcconfig"; path = "Target Support Files/Pods-ExpenserTests/Pods-ExpenserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -325,11 +327,20 @@
 		10AB48062793CB5E000F5F9E /* ChartView */ = {
 			isa = PBXGroup;
 			children = (
+				10AB480D2793DCE5000F5F9E /* DataSource */,
 				10AB48072793CB74000F5F9E /* ChartViewController.swift */,
 				10AB48092793CB7D000F5F9E /* ChartViewModel.swift */,
 				10AB480B2793CB84000F5F9E /* ChartViewController.storyboard */,
 			);
 			path = ChartView;
+			sourceTree = "<group>";
+		};
+		10AB480D2793DCE5000F5F9E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				10AB480E2793DCF6000F5F9E /* ExpenseDataPoint.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		295041267DDE0CACE51C28AC /* Frameworks */ = {
@@ -634,6 +645,7 @@
 				1085214A2791E43E003FB67A /* PrimaryButton.swift in Sources */,
 				10B2AA5B278D8CEF0043C532 /* ExpenseObject.swift in Sources */,
 				103D51FA278D3C5200A87B94 /* AllExpenseViewModel.swift in Sources */,
+				10AB480F2793DCF6000F5F9E /* ExpenseDataPoint.swift in Sources */,
 				103D5202278D511700A87B94 /* Theme.swift in Sources */,
 				100830F3278D2C3D00CC0690 /* AppDelegate.swift in Sources */,
 				100830F5278D2C3D00CC0690 /* SceneDelegate.swift in Sources */,

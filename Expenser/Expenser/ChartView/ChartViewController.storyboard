@@ -15,9 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQ9-9K-Bik" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="12" y="253" width="390" height="390"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LQ9-9K-Bik" secondAttribute="height" multiplier="1:1" id="MkK-ZX-KWB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LQ9-9K-Bik" secondAttribute="trailing" constant="12" id="EIv-C3-dqB"/>
+                            <constraint firstItem="LQ9-9K-Bik" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="SyQ-Wm-08M"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LQ9-9K-Bik" secondAttribute="bottom" constant="10" id="TOA-zj-2cZ"/>
+                            <constraint firstItem="LQ9-9K-Bik" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Txa-WF-hsc"/>
+                            <constraint firstItem="LQ9-9K-Bik" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="XUV-WO-yKE"/>
+                            <constraint firstItem="LQ9-9K-Bik" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="ZyN-N7-2ZL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barChartView" destination="LQ9-9K-Bik" id="n1Q-om-Ydj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

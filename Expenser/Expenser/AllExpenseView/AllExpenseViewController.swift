@@ -64,6 +64,8 @@ private extension AllExpenseViewController {
     @objc
     func showChart(sender: UIBarButtonItem) {
         let chartController = UIViewController.make(viewController: ChartViewController.self)
+        let viewModel = ChartViewModel(service: ExpenseService(expenseDB: ExpenseDB.shared))
+        chartController.viewModel = viewModel
         self.present(UINavigationController(rootViewController: chartController),
                      animated: true)
     }
