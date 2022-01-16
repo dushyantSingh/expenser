@@ -41,7 +41,7 @@ private extension AllExpenseViewModel {
     }
 
     func fetchAllExpenses() {
-        var expenses = expenseService.getAllExpenses()
+        let expenses = expenseService.getAllExpenses()
         expenseSections.accept(expenses)
     }
 

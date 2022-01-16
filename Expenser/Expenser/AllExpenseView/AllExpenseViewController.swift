@@ -117,7 +117,7 @@ extension AllExpenseViewController: UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM"
         let expenseDate = dateFormatter.string(from: expense.expenseDate)
-        let amount = "\(expense.currencySymbol)\(expense.amount)"
+        let amount = "\(expense.currencySymbol)\(String(format: "%.2f", expense.amount))"
         cell.configure(dateText: expenseDate,
                        primaryText: expense.title,
                        spentAmount: amount)
