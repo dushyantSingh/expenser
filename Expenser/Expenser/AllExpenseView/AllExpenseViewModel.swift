@@ -41,18 +41,8 @@ private extension AllExpenseViewModel {
     }
 
     func fetchAllExpenses() {
-        var latestExpenses = [ExpenseSectionModel]()
         var expenses = expenseService.getAllExpenses()
-        expenses.sort { $0.expenseDate > $1.expenseDate }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM yyyy"
-        let groupedExpenses = Dictionary(grouping: expenses) {formatter.string(from:$0.expenseDate)}
-        groupedExpenses.forEach { key, value in
-            let section = ExpenseSectionModel(header: key, rows: value)
-            latestExpenses.append(section)
-        }
-        latestExpenses.sort { formatter.date(from: $0.header)! > formatter.date(from: $1.header)! }
-        expenseSections.accept(latestExpenses)
+        expenseSections.accept(expenses)
     }
 
     func setupDelete() {
