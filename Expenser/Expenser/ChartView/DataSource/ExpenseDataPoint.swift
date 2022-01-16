@@ -18,7 +18,7 @@ struct ExpenseDataPoint: ChartDataPoint {
 
     func xValueTitle() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd"
+        formatter.dateFormat = "dd"
         return formatter.string(from: xValue)
     }
 }
