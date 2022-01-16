@@ -9,6 +9,7 @@ target 'Expenser' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxOptional'
+  pod 'Charts'
 
   target 'ExpenserTests' do
     inherit! :search_paths
