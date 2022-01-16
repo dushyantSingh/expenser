@@ -6,9 +6,15 @@
 //
 
 import Foundation
+import RxSwift
+
 @testable import Expenser
 
 class MockExpenseService: ExpenseServiceType {
+    var changesObserved: Observable<Void> {
+        return .empty()
+    }
+
 
     var stubExpenses = [ExpenseObject]()
     func getAllExpenses() -> [ExpenseObject] {
