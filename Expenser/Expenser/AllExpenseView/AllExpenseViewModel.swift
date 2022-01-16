@@ -16,7 +16,7 @@ class AllExpenseViewModel {
         case deleteExpense(ExpenseObject)
     }
 
-    var expenseSections = [ExpenseSectionModel]()
+    var expenseSections = BehaviorRelay(value: [ExpenseSectionModel]())
 
     let expenseService: ExpenseServiceType
     let deleteTriggered = PublishSubject<IndexPath>()
@@ -41,7 +41,7 @@ private extension AllExpenseViewModel {
     }
 
     func fetchAllExpenses() {
-        expenseSections.removeAll()
+        var latestExpenses = [ExpenseSectionModel]()
         var expenses = expenseService.getAllExpenses()
         expenses.sort { $0.expenseDate > $1.expenseDate }
         let formatter = DateFormatter()
@@ -49,18 +49,23 @@ private extension AllExpenseViewModel {
         let groupedExpenses = Dictionary(grouping: expenses) {formatter.string(from:$0.expenseDate)}
         groupedExpenses.forEach { key, value in
             let section = ExpenseSectionModel(header: key, rows: value)
-            expenseSections.append(section)
+            latestExpenses.append(section)
         }
-        expenseSections.sort { formatter.date(from: $0.header)! > formatter.date(from: $1.header)! }
+        latestExpenses.sort { formatter.date(from: $0.header)! > formatter.date(from: $1.header)! }
+        expenseSections.accept(latestExpenses)
     }
 
     func setupDelete() {
         deleteTriggered.asObservable()
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-
-                let expense = self.expenseSections[indexPath.section].rows.remove(at: indexPath.row)
-                self.expenseService.deleteExpense(expense)
+                var expenses = self.expenseSections.value
+                let deletedExpense = expenses[indexPath.section].rows.remove(at: indexPath.row)
+                self.expenseService.deleteExpense(deletedExpense)
+                if expenses[indexPath.section].rows.isEmpty {
+                    expenses.remove(at: indexPath.section)
+                }
+                self.expenseSections.accept(expenses)
             })
             .disposed(by: disposeBag)
     }

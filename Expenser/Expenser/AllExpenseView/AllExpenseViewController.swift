@@ -10,18 +10,36 @@ import RxSwift
 
 class AllExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addExpenseLabel: UILabel!
 
     var viewModel: AllExpenseViewModel!
 
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupTableView()
         setupNavigationBar()
     }
 }
 
 private extension AllExpenseViewController {
+    func setupUI() {
+        addExpenseLabel.font = Theme.Font.thinFont(with: 24)
+        addExpenseLabel.text = "Add a new expense"
+        viewModel.expenseSections.asObservable()
+            .subscribe(onNext: { [weak self] expenses in
+                if expenses.isEmpty {
+                    self?.tableView.isHidden = true
+                    self?.addExpenseLabel.isHidden = false
+                } else {
+                    self?.tableView.isHidden = false
+                    self?.addExpenseLabel.isHidden = true
+                }
+            })
+            .disposed(by: disposeBag)
+
+    }
     func setupNavigationBar() {
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add,
                                            target: self,
@@ -49,7 +67,7 @@ extension AllExpenseViewController: UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
-        viewModel.expenseService.changesObserved.asObservable()
+        viewModel.expenseSections.asObservable()
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             })
@@ -57,17 +75,17 @@ extension AllExpenseViewController: UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.expenseSections.count
+        return viewModel.expenseSections.value.count
     }
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return viewModel.expenseSections[section].rows.count
+        return viewModel.expenseSections.value[section].rows.count
     }
 
     func tableView(_ tableView: UITableView,
                    titleForHeaderInSection section: Int) -> String? {
-        return viewModel.expenseSections[section].header
+        return viewModel.expenseSections.value[section].header
     }
 
     func tableView(_ tableView: UITableView,
@@ -77,7 +95,7 @@ extension AllExpenseViewController: UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: identifier,
                                      for: indexPath) as? ExpenseTableViewCell
         else { return UITableViewCell() }
-        let expense = viewModel.expenseSections[indexPath.section].rows[indexPath.row]
+        let expense = viewModel.expenseSections.value[indexPath.section].rows[indexPath.row]
         configure(cell: cell, expense: expense)
         return cell
     }
@@ -103,7 +121,11 @@ extension AllExpenseViewController: UITableViewDelegate {
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+                tableView.deleteSections([indexPath.section], with: .automatic)
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
             viewModel.deleteTriggered.onNext(indexPath)
             tableView.endUpdates()
         }

@@ -20,17 +20,26 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVl-Nw-mhe">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TVl-Nw-mhe" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="3Rr-yE-hnh"/>
                             <constraint firstItem="FeN-gM-4yu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bBn-fQ-Dd2"/>
                             <constraint firstItem="FeN-gM-4yu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hYs-mV-b1r"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FeN-gM-4yu" secondAttribute="bottom" id="iqq-3N-aSN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FeN-gM-4yu" secondAttribute="trailing" id="oN1-mh-jMl"/>
+                            <constraint firstItem="TVl-Nw-mhe" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="wcF-er-0tk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addExpenseLabel" destination="TVl-Nw-mhe" id="pJL-Il-12i"/>
                         <outlet property="tableView" destination="FeN-gM-4yu" id="iz2-Ne-c7l"/>
                     </connections>
                 </viewController>
