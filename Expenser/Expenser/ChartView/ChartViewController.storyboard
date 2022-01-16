@@ -20,28 +20,60 @@
                                 <rect key="frame" x="12" y="253" width="390" height="390"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="LQ9-9K-Bik" secondAttribute="height" multiplier="1:1" id="MkK-ZX-KWB"/>
+                                    <constraint firstAttribute="width" secondItem="LQ9-9K-Bik" secondAttribute="height" multiplier="1:1" id="VqY-u9-DXU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-nD-AXF">
+                                <rect key="frame" x="16" y="778" width="382" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSZ-gC-S7R" customClass="PrimaryButton" customModule="Expenser" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="14.5" width="167" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Previous">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWv-S7-sT8" customClass="PrimaryButton" customModule="Expenser" customModuleProvider="target">
+                                        <rect key="frame" x="203" y="14.5" width="167" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Next">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HjB-J6-hSP"/>
+                                    <constraint firstItem="KWv-S7-sT8" firstAttribute="centerY" secondItem="uAS-nD-AXF" secondAttribute="centerY" id="Lzz-nd-nMz"/>
+                                    <constraint firstItem="KWv-S7-sT8" firstAttribute="width" secondItem="SSZ-gC-S7R" secondAttribute="width" id="cCC-g5-hCk"/>
+                                    <constraint firstItem="SSZ-gC-S7R" firstAttribute="leading" secondItem="uAS-nD-AXF" secondAttribute="leading" constant="12" id="it7-ii-l8e"/>
+                                    <constraint firstAttribute="trailing" secondItem="KWv-S7-sT8" secondAttribute="trailing" constant="12" id="mIn-Ff-aMo"/>
+                                    <constraint firstItem="SSZ-gC-S7R" firstAttribute="centerY" secondItem="uAS-nD-AXF" secondAttribute="centerY" id="nYy-Q8-38o"/>
+                                    <constraint firstItem="KWv-S7-sT8" firstAttribute="leading" secondItem="SSZ-gC-S7R" secondAttribute="trailing" constant="24" id="vIb-gt-Jog"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uAS-nD-AXF" secondAttribute="trailing" constant="16" id="2ud-ss-nxU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LQ9-9K-Bik" secondAttribute="trailing" constant="12" id="EIv-C3-dqB"/>
+                            <constraint firstItem="uAS-nD-AXF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="O1g-IH-Vub"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uAS-nD-AXF" secondAttribute="bottom" constant="24" id="QbF-t9-vYu"/>
                             <constraint firstItem="LQ9-9K-Bik" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="SyQ-Wm-08M"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LQ9-9K-Bik" secondAttribute="bottom" constant="10" id="TOA-zj-2cZ"/>
                             <constraint firstItem="LQ9-9K-Bik" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Txa-WF-hsc"/>
                             <constraint firstItem="LQ9-9K-Bik" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="XUV-WO-yKE"/>
-                            <constraint firstItem="LQ9-9K-Bik" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="ZyN-N7-2ZL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="barChartView" destination="LQ9-9K-Bik" id="n1Q-om-Ydj"/>
+                        <outlet property="nextButton" destination="KWv-S7-sT8" id="7mH-lz-03X"/>
+                        <outlet property="previousButton" destination="SSZ-gC-S7R" id="3P9-yj-jN9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="115"/>
+            <point key="canvasLocation" x="-349" y="115"/>
         </scene>
     </scenes>
     <resources>

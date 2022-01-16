@@ -8,17 +8,38 @@
 import UIKit
 import Charts
 import RxSwift
+import RxCocoa
 
 class ChartViewController: UIViewController {
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
 
     var viewModel: ChartViewModel!
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCharts()
+        setupButtons()
+        setupNavigationBar()
     }
 
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        viewModel.monthTitle.asObservable()
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+    }
+
+    func setupButtons() {
+        nextButton.rx.tap
+            .bind(to: viewModel.nextButtonTapped)
+            .disposed(by: disposeBag)
+        previousButton.rx.tap
+            .bind(to: viewModel.previousButtonTapped)
+            .disposed(by: disposeBag)
+    }
+    
     func setupCharts() {
         viewModel.expenseDataSet.asObservable()
             .map { dataSet in
