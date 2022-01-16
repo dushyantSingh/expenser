@@ -44,7 +44,11 @@ private extension AllExpenseViewController {
         let addBarButton = UIBarButtonItem(barButtonSystemItem: .add,
                                            target: self,
                                            action: #selector(addExpense(sender:)))
-        navigationItem.rightBarButtonItem = addBarButton
+        let charts = UIBarButtonItem(image: UIImage(systemName: "waveform.path.ecg.rectangle"),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(showChart(sender:)))
+        navigationItem.rightBarButtonItems = [charts, addBarButton]
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Expenses"
     }
@@ -54,6 +58,13 @@ private extension AllExpenseViewController {
         let addExpenseController = UIViewController.make(viewController: AddExpenseViewController.self)
         addExpenseController.viewModel = AddExpenseViewModel(service: ExpenseService(expenseDB: ExpenseDB.shared))
         self.present(UINavigationController(rootViewController: addExpenseController),
+                     animated: true)
+    }
+
+    @objc
+    func showChart(sender: UIBarButtonItem) {
+        let chartController = UIViewController.make(viewController: ChartViewController.self)
+        self.present(UINavigationController(rootViewController: chartController),
                      animated: true)
     }
 }
