@@ -17,7 +17,7 @@ class AllExpenseViewModelSpec: QuickSpec {
             var mockService: MockExpenseService!
             beforeEach {
                 mockService = MockExpenseService()
-                mockService.stubExpenses = ExpenseFactory.getExpenses_1()
+                mockService.stubExpenses = ExpenseFactory.getExpenseSectionModel_1()
                 subject = AllExpenseViewModel(service: mockService)
             }
             context("fetch all expenses") {

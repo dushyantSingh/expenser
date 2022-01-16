@@ -19,7 +19,7 @@ class AllExpenseViewControllerSpec: QuickSpec {
             context("when there is no expense") {
                 beforeEach {
                     let mockService = MockExpenseService()
-                    mockService.stubExpenses = [ExpenseObject]()
+                    mockService.stubExpenses = [ExpenseSectionModel]()
                     viewModel = AllExpenseViewModel(service: mockService )
                     subject = UIViewController.make(viewController: AllExpenseViewController.self)
                     subject.viewModel = viewModel
@@ -36,7 +36,7 @@ class AllExpenseViewControllerSpec: QuickSpec {
             context("when there is stored expenses") {
                 beforeEach {
                     let mockService = MockExpenseService()
-                    mockService.stubExpenses = ExpenseFactory.getExpenses_2()
+                    mockService.stubExpenses = ExpenseFactory.getExpenseSectionModel_2()
                     viewModel = AllExpenseViewModel(service: mockService )
                     subject = UIViewController.make(viewController: AllExpenseViewController.self)
                     subject.viewModel = viewModel
@@ -88,7 +88,7 @@ class AllExpenseViewControllerSpec: QuickSpec {
 
                     context("December Expenses") {
                         it("should have 1 expense") {
-                            expect(subject.tableView.numberOfRows(inSection: 1)) == 1
+                            expect(subject.tableView.numberOfRows(inSection: 1)) == 2
                         }
                         it("should have header title") {
                             expect(subject.tableView.dataSource?.tableView?(subject.tableView,
@@ -96,6 +96,13 @@ class AllExpenseViewControllerSpec: QuickSpec {
                         }
                         it("should have first row") {
                             let indexPath = IndexPath(row: 0, section: 1)
+                            let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
+                            expect(cell.dateTextLabel.text) == "21 Dec"
+                            expect(cell.amountTextLabel.text) == "$99.2"
+                            expect(cell.primaryTextLabel.text) == "Travel 2"
+                        }
+                        it("should have second row") {
+                            let indexPath = IndexPath(row: 1, section: 1)
                             let cell = subject.tableView.cellForRow(at: indexPath) as! ExpenseTableViewCell
                             expect(cell.dateTextLabel.text) == "18 Dec"
                             expect(cell.amountTextLabel.text) == "$200.0"
