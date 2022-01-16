@@ -44,7 +44,7 @@ class ExpenseService: ExpenseServiceType {
             latestExpenses.append(section)
         }
         latestExpenses.sort { formatter.date(from: $0.header)! > formatter.date(from: $1.header)! }
-        return latestExpenses ?? []
+        return latestExpenses
     }
 
     func addExpense(title: String, date: Date, amount: Double) -> Bool {

@@ -16,8 +16,8 @@ class MockExpenseService: ExpenseServiceType {
     }
 
 
-    var stubExpenses = [ExpenseObject]()
-    func getAllExpenses() -> [ExpenseObject] {
+    var stubExpenses = [ExpenseSectionModel]()
+    func getAllExpenses() -> [ExpenseSectionModel] {
         return stubExpenses
     }
 

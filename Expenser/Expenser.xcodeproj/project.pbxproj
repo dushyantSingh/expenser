@@ -42,6 +42,7 @@
 		10AB480A2793CB7D000F5F9E /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB48092793CB7D000F5F9E /* ChartViewModel.swift */; };
 		10AB480C2793CB84000F5F9E /* ChartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AB480B2793CB84000F5F9E /* ChartViewController.storyboard */; };
 		10AB480F2793DCF6000F5F9E /* ExpenseDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB480E2793DCF6000F5F9E /* ExpenseDataPoint.swift */; };
+		10AB48122793FCFD000F5F9E /* ExpenseServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB48112793FCFD000F5F9E /* ExpenseServiceSpec.swift */; };
 		10B2AA5B278D8CEF0043C532 /* ExpenseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */; };
 		5036B11FE6CC15025C893EB0 /* Pods_Expenser_ExpenserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A7415B8224AC572BBFB93 /* Pods_Expenser_ExpenserUITests.framework */; };
 		5D26E8B5A1583C7115C1723F /* Pods_Expenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D7056A4ABAC8DF81E87E53 /* Pods_Expenser.framework */; };
@@ -104,6 +105,7 @@
 		10AB48092793CB7D000F5F9E /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		10AB480B2793CB84000F5F9E /* ChartViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChartViewController.storyboard; sourceTree = "<group>"; };
 		10AB480E2793DCF6000F5F9E /* ExpenseDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataPoint.swift; sourceTree = "<group>"; };
+		10AB48112793FCFD000F5F9E /* ExpenseServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseServiceSpec.swift; sourceTree = "<group>"; };
 		10B2AA5A278D8CEF0043C532 /* ExpenseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseObject.swift; sourceTree = "<group>"; };
 		1119C2318C0DAB3E2E3DD362 /* Pods-Expenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expenser.release.xcconfig"; path = "Target Support Files/Pods-Expenser/Pods-Expenser.release.xcconfig"; sourceTree = "<group>"; };
 		2614CB4CCA78D42D78A7D560 /* Pods-ExpenserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpenserTests.release.xcconfig"; path = "Target Support Files/Pods-ExpenserTests/Pods-ExpenserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				1085215127927BB9003FB67A /* AddExpenseView */,
 				103D5210278D6E7400A87B94 /* AllExpenseView */,
 				103D520F278D6E6400A87B94 /* ExpenseTableViewCell */,
+				10AB48102793FCD0000F5F9E /* Services */,
 			);
 			path = ExpenserTests;
 			sourceTree = "<group>";
@@ -341,6 +344,14 @@
 				10AB480E2793DCF6000F5F9E /* ExpenseDataPoint.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		10AB48102793FCD0000F5F9E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				10AB48112793FCFD000F5F9E /* ExpenseServiceSpec.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		295041267DDE0CACE51C28AC /* Frameworks */ = {
@@ -666,6 +677,7 @@
 				10AB480027931DAA000F5F9E /* ExpenseFactory.swift in Sources */,
 				1008310A278D2C4000CC0690 /* ExpenseTableViewCellSpec.swift in Sources */,
 				10AB48052793257F000F5F9E /* MockExpenseService.swift in Sources */,
+				10AB48122793FCFD000F5F9E /* ExpenseServiceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
