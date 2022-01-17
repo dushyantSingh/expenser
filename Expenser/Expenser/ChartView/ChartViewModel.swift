@@ -52,12 +52,16 @@ private extension ChartViewModel {
     }
     func fetchExpenseDataSet() {
         var dataSet = [ExpenseDataPoint]()
-        let currentExpenses = expenses[monthIndex]
-        monthTitle.accept(currentExpenses.header)
-        currentExpenses.rows.forEach { item in
-            dataSet.append(ExpenseDataPoint(yValue: item.amount,
-                                            xValue: item.expenseDate))
+        if monthIndex < expenses.count {
+            let currentExpenses = expenses[monthIndex]
+            monthTitle.accept(currentExpenses.header)
+            currentExpenses.rows.forEach { item in
+                dataSet.append(ExpenseDataPoint(yValue: item.amount,
+                                                xValue: item.expenseDate))
+            }
+            expenseDataSet.accept(dataSet)
+        } else {
+            monthTitle.accept("No expense available")
         }
-        expenseDataSet.accept(dataSet)
     }
 }
