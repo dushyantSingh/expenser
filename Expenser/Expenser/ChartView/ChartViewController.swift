@@ -22,6 +22,14 @@ class ChartViewController: UIViewController {
         setupCharts()
         setupButtons()
         setupNavigationBar()
+
+        viewModel.testEscapingClouse {
+            print("Closure completed")
+            print(self.previousButton ?? "")
+        }
+    }
+    deinit {
+        print("\(Self.self) deinit")
     }
 
     func setupNavigationBar() {

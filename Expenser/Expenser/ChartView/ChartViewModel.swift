@@ -27,12 +27,24 @@ class ChartViewModel {
         fetchExpenseDataSet()
         setupNextAndPreviousButton()
     }
+
+    func testEscapingClouse(completion: @escaping (() -> Void)) {
+        print("Closure called")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            print("Closure completed")
+            completion()
+        }
+    }
+    
+    deinit {
+        print("\(Self.self) deinit")
+    }
 }
 
 private extension ChartViewModel {
     func setupNextAndPreviousButton() {
         nextButtonTapped.asObservable()
-            .subscribe(onNext: { [weak self]_ in
+            .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 if self.monthIndex > 0{
                     self.monthIndex -= 1
@@ -42,7 +54,8 @@ private extension ChartViewModel {
             .disposed(by: disposeBag)
 
         previousButtonTapped.asObservable()
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: {[weak self] _ in
+                guard let self = self else { return }
                 if self.monthIndex < self.expenses.count - 1{
                     self.monthIndex += 1
                     self.fetchExpenseDataSet()
